@@ -1,0 +1,67 @@
+Print All Lines
+sed -n -e 'p' testfile.txt
+
+Print 1st Line
+sed -n -e '1p' testfile.txt
+sed -n -e '1{p}' testfile.txt
+
+Print 2nd Line
+sed -n -e '2{p}' testfile.txt
+
+Print Last Line
+sed -n -e '$p' testfile.txt
+sed -n -e '${p}' testfile.txt
+
+Print First and Third
+sed -n -e '3p' -e '1p' testfile.txt (Order will always be mantained)
+
+Print First to Third
+sed -n -e '1,3{p}' testfile.txt
+
+Print lines skip every 2
+sed -n -e '3~2{p}' testfile.txt
+
+Print 2 lines from
+sed -n -e '3,+2{p}' testfile.txt
+
+Print All except 2
+sed -n -e '2!{p}' testfile.txt
+
+Print Twice
+Print All Twice 
+- sed -e 'p' testfile.txt
+
+Print Only First Line Twice and Other Lines Once
+- sed -e '1p' testfile.txt
+
+  Search and Print Pattern in Line
+  sed -n -e '/Goku/p' testfile.txt
+  Case Insensitive search
+  sed -n -e '/goku/Ip' testfile.txt
+
+  Search Pattern and Replace in Line
+  sed 's/Hi/Hello/g' testfile.txt 
+  sed -i 's/Hi/Hello/g' testfile.txt  
+  sed 's/unix/linux/p' testfile2.txt 
+  sed 's/unix/linux/2p' testfile2.txt 
+
+Search Pattern only in 2nd Line
+sed -n '2{/India/p}' employees.txt
+
+Search Pattern except 2nd Line
+sed -n '2!{/India/p}' employees.txt
+
+Search OR
+sed -n '/pattern1/p; /pattern2/p' file
+
+Search AND
+sed -n '/pattern1/{/pattern2/p}' file
+sed -n -e '/pattern1/p'| sed -n -e '/pattern2/p'
+
+  
+Replace All
+  sed 's/unix/linux/gp' testfile2.txt 
+  sed -i 's/[[:space:]][0-9]\{3\}[[:space:]]//1' sedcommands.txt
+
+Replace but not print
+	sed -i 's/unix/linux/p' testfile2.txt

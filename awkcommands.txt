@@ -1,0 +1,64 @@
+  ps|awk '{print $1}'
+ 1188  ps|awk '{print $2}'
+ 1189  ps|awk '{print $3}'
+ 1190  ls|awk '{print $3}'
+ 1191  ls|awk '{print $1}'
+ 1192  ls
+ 1193  ls -la|awk '{print $1}'
+ 1194  ls -la|awk '{print $2}'
+ 1195  ls -la|awk '{print $3}'
+ 1196  ls -la|awk '{print $4}'
+ 1197  ls -la|awk '{print $5}'
+ 1198  ls -la|awk '{print $6}'
+ 1199  ls -la|awk '{print $7}'
+ 1200  ls -la|awk '{print $8}'
+ 1201  ls -la|awk '{print $7}'
+ 1202  ls -la|awk '{print $7}'|uniq
+ 1203  ls -la|awk '{print $7}'|uniq|sort
+ 1204  ls -la|awk '{print $7}'|sort|uniq
+ 1205  ls -la|awk '{print $0}'|sort|uniq
+ 1206  awk '{print $0}' /etc/passwd
+ 1207  awk -F ":" '{print $0}' /etc/passwd
+ 1208  awk -F ":" '{print $1}' /etc/passwd
+ 1209  awk -F ":" '{print $1$6}' /etc/passwd
+ 1210  awk -F ":" '{print $1" "$6}' /etc/passwd
+ 1211  awk -F ":" '{print $1","$6}' /etc/passwd
+ 1212  awk -F ":" '{print $1","$6}' /etc/passwd|nanno
+ 1213  awk -F ":" '{print $1","$6}' /etc/passwd|nano
+ 1214* 
+ 1215  nano
+ 1216  awk 'BEGIN{FS=":" OFS=","}" {print $1","$6}' /etc/passwd
+ 1217  awk 'BEGIN{FS=":" OFS=","} {print $1","$6}' /etc/passwd
+ 1218  awk 'BEGIN{FS=":"; OFS=","} {print $1","$6}' /etc/passwd
+ 1219  awk 'BEGIN{FS=":"; OFS=","} {print $1""$6}' /etc/passwd
+ 1220  awk 'BEGIN{FS=":"; OFS=","} {print $1$6}' /etc/passwd
+ 1221  awk 'BEGIN{FS=":"; OFS=","} {print $1 $6}' /etc/passwd
+ 1222* awk 'BEGIN{} {print $1,$6}' /etc/passwd
+ 1223  awk 'BEGIN{FS=":"; OFS=","} {print $1,$6}' /etc/passwd
+ 1224  awk 'BEGIN{FS=":"; OFS="/"} {print $1,$6}' /etc/passwd
+ 1225  awk 'BEGIN{FS=":"; OFS="\\"} {print $1,$6}' /etc/passwd
+ 1226  awk '{print $1,$6}' /etc/passwd
+ 1227  awk '{print $NF $1,$6}' /etc/passwd
+ 1228  awk '{print $NF,$1,$6}' /etc/passwd
+ 1229  awk '{print NF,$1,$6}' /etc/passwd
+ 1230  awk '{print NR,$1,$6}' /etc/passwd
+ 1231  awk '{print NF,$1,$6}' /etc/passwd
+ 1232  awk '{print $1,$6,NF}' /etc/passwd
+ 1233  awk '{print $1","$6","NF}' /etc/passwd
+ 1234  awk -F ":" '{print $1","$6","NF}' /etc/passwd
+ 1235  awk -F ":" '{print $1$6NF}' /etc/passwd
+ 1236  awk -F ":" '{print $1,$6,NF}' /etc/passwd
+ 1237* 
+ 1238  awk -F ":" '{print $1,$6,NF}' /etc/passwd
+ 1239  awk 'BEGIN {FS=":"} {print $1,$6,NF}' /etc/passwd
+ 1240  awk 'BEGIN {FS=":"; OFS=","} {print $1,$6,NF}' /etc/passwd
+ 1241  awk 'BEGIN {FS=":"; OFS=","} {print $1"["$6"["NF}' /etc/passwd
+ 1242  awk 'BEGIN {FS=":"; OFS=","} {print $1,$6,NF}' /etc/passwd
+ 1243  awk 'BEGIN {FS=":"; OFS=","} /root/{print $1,$6,NF}' /etc/passwd
+ 1244  awk 'BEGIN {FS=":"; OFS=","} /^root/{print $1,$6,NF}' /etc/passwd
+ 1245  awk 'BEGIN {FS=":"; OFS=","} /^root /{print $1,$6,NF}' /etc/passwd
+ 1246  awk 'BEGIN {FS=":"; OFS=","} /^root:/{print $1,$6,NF}' /etc/passwd
+ 1247  awk 'BEGIN {FS=":"; OFS=","} {if (length($1>4)){print $1,$6,NF;}}' /etc/passwd
+ 1248  awk 'BEGIN {FS=":"; OFS=","} {if (length($1<4)){print $1,$6,NF;}}' /etc/passwd
+ 1249  awk 'BEGIN {FS=":"; OFS=","} {if (length($1 < 4)){print $1,$6,NF;}}' /etc/passwd
+ 1250  awk 'BEGIN {FS=":"; OFS=","} {if (length($1)<4){print $1,$6,NF;}}' /etc/passwd
