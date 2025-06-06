@@ -6,7 +6,7 @@ export JAVA_VERSION=17.0.14
 export JAVA_MAJOR=17
 export FILENAME=jdk-${JAVA_VERSION}_linux-x64_bin.tar.gz
 export DOWNLOAD_PATH=/mnt/Shared/LinuxSetups/JDKArchives
-export INSTALL_PATH=/opt/JDK/${JAVA_MAJOR}
+export INSTALL_PATH=/opt/JDK/${JAVA_VERSION}
 export PATH=$PWD:$PATH
 echo $PATH
 
@@ -39,7 +39,7 @@ else
   export JAVA_MAJOR="${JAVA_VERSION%%.*}"
 fi
 
-INSTALL_PATH=/opt/JDK/${JAVA_MAJOR}
+INSTALL_PATH=/opt/JDK/${JAVA_VERSION}
 
 echo $JAVA_VERSION
 echo $JAVA_MAJOR
