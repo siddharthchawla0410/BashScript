@@ -1,15 +1,16 @@
 #!/bin/bash
+# GLOBAL VARS
+# SETUP PATH
+# WORKSPACE PATH
 
-
-# set version
-export GIT_VERSION=2.49.0
-export GIT_MAJOR=2
-export FILENAME=git-${GIT_VERSION}.tar.gz
-export DOWNLOAD_URL=https://www.kernel.org/pub/software/scm/git/${FILENAME}
-export DOWNLOAD_PATH=/mnt/Shared/LinuxSetups/GitSrcArchives/$GIT_VERSION
-export EXTRACT_PATH=/opt/GitSrc/
-export BUILD_PATH=${EXTRACT_PATH}/git-${GIT_VERSION}
-export INSTALL_PATH=/opt/git/${GIT_VERSION}
+# LOCAL VARIABLES
+GIT_VERSION_INSTALL=2.48.0
+FILENAME=git-${GIT_VERSION_INSTALL}.tar.gz
+DOWNLOAD_URL=https://www.kernel.org/pub/software/scm/git/${FILENAME}
+DOWNLOAD_PATH=${SETUP_PATH}/GitSrcArchives/${GIT_VERSION_INSTALL}
+export EXTRACT_PATH=${WORKSPACE_PATH}/GitSrc/
+export BUILD_PATH=${EXTRACT_PATH}/git-${GIT_VERSION_INSTALL}
+export INSTALL_PATH=${WORKSPACE_PATH}/git/${GIT_VERSION_INSTALL}
 export PATH=$PWD:$PATH
 echo $PATH
 

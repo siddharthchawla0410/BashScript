@@ -1,14 +1,16 @@
 #!/bin/bash
 
+# GLOBAL VARS
+#  SETUP_PATH
+#  WORKSPACE_PATH
 
-# set version
-export NODE_VERSION=22.15.0
-export NODE_MAJOR=22
-export FILENAME=node-v${NODE_VERSION}-linux-x64.tar.xz
-export DOWNLOAD_URL=https://nodejs.org/download/release/v${NODE_VERSION}/${FILENAME}
-export DOWNLOAD_PATH=/mnt/Shared/LinuxSetups/NodeJSArchives/$NODE_VERSION
-export INSTALL_PATH=/opt/nodejs/${NODE_VERSION}
-export PATH=$PWD:$PATH
+# LOCAL VARS
+NODE_VERSION_INSTALL=22.5.1
+FILENAME=node-v${NODE_VERSION_INSTALL}-linux-x64.tar.xz
+DOWNLOAD_URL=https://nodejs.org/download/release/v${NODE_VERSION_INSTALL}/${FILENAME}
+DOWNLOAD_PATH=${SETUP_PATH}/NodeJSArchives/${NODE_VERSION_INSTALL}
+INSTALL_PATH=${WORKSPACE_PATH}/nodejs/${NODE_VERSION_INSTALL}
+PATH=$PWD:$PATH
 echo $PATH
 
 #  download and extract node

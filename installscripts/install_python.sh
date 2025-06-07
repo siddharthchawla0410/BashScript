@@ -1,16 +1,18 @@
 #!/bin/bash
 
+#GLOBAL VARS
+# SETUP_PATH
+# WORKSPACE_PATH
 
-# set version
-export PYTHON_VERSION=3.6.2
-export PYTHON_MAJOR=3
-export FILENAME=Python-${PYTHON_VERSION}.tgz
-export DOWNLOAD_URL=https://www.python.org/ftp/python/${PYTHON_VERSION}/$FILENAME
-export DOWNLOAD_PATH=/mnt/Shared/LinuxSetups/PythonSrcArchives/$PYTHON_VERSION
-export EXTRACT_PATH=/opt/PythonSrc/
-export BUILD_PATH=${EXTRACT_PATH}/Python-${PYTHON_VERSION}
-export INSTALL_PATH=/opt/python/${PYTHON_VERSION}
-export PATH=$PWD:$PATH
+# LOCAL VARS
+PYTHON_VERSION_INSTALL=3.13.0
+FILENAME=Python-${PYTHON_VERSION_INSTALL}.tgz
+DOWNLOAD_URL=https://www.python.org/ftp/python/${PYTHON_VERSION_INSTALL}/${FILENAME}
+DOWNLOAD_PATH=${SETUP_PATH}/PythonSrcArchives/${PYTHON_VERSION_INSTALL}
+EXTRACT_PATH=${WORKSPACE_PATH}/PythonSrc/
+BUILD_PATH=${EXTRACT_PATH}/Python-${PYTHON_VERSION_INSTALL}
+INSTALL_PATH=${WORKSPACE_PATH}/python/${PYTHON_VERSION_INSTALL}
+PATH=$PWD:$PATH
 echo $PATH
 
 #  download and extract python
@@ -47,7 +49,7 @@ chmod 0777 -R ${INSTALL_PATH}
 ./configure \
     --prefix=${INSTALL_PATH} \
     --enable-shared \
-#    --enable-optimizations \
+    --enable-optimizations \
     --enable-ipv6 \
     --with-ensurepip=install \
     LDFLAGS=-Wl,-rpath=${INSTALL_PATH}/lib,--disable-new-dtags
@@ -59,7 +61,7 @@ sudo make altinstall
 #make symbolic link
 cd $INSTALL_PATH
 cd bin
-export PYTHON_BINARY=$(ls|grep python|grep -v config|head -n 1)
-export PIP_BINARY=$(ls|grep pip|head -n 1)
+PYTHON_BINARY=$(ls|grep python|grep -v config|head -n 1)
+PIP_BINARY=$(ls|grep pip|head -n 1)
 ln -s $PYTHON_BINARY python
 ln -s $PIP_BINARY pip
