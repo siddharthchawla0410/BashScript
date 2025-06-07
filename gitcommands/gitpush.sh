@@ -1,6 +1,6 @@
 
 
-KEY=/root/.ssh/id_github
+KEY=$GIT_KEY
 
 
 agent_output=$(ssh-agent -s)

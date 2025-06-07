@@ -87,3 +87,5 @@ sed -n -e '/pattern1/p'| sed -n -e '/pattern2/p'
 Replace All
   sed 's/unix/linux/gp' testfile2.txt 
   sed -i 's/[[:space:]][0-9]\{3\}[[:space:]]//1' sedcommands.txt
+Replace but not print
+	sed -i 's/unix/linux/p' testfile2.txt
