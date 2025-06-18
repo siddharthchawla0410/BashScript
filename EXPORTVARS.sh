@@ -30,6 +30,7 @@ export GIT_LOC=${WORKSPACE_PATH}/git/$GIT_VER/bin
 export PYTHON_LOC=${WORKSPACE_PATH}/python/$PYTHON_VER/bin
 export NODEJS_LOC=${WORKSPACE_PATH}/nodejs/${NODEJS_VER}/node-v${NODEJS_VER}-linux-x64/bin
 export JDK_LOC=${WORKSPACE_PATH}/JDK/${JDK_VER}
+export VSCODE_LOC=${WORKSPACE_PATH}/VSCode/VSCode-linux-x64
 export SHELLSCRIPT_LOC=${REPO_PATH}/BashScript
 
 echo "Exporting GIT VER: $GIT_VER"
@@ -66,6 +67,13 @@ if [ -d "$JDK_LOC" ]; then
     export PATH="$JDK_LOC:$PATH"
 else
     echo "Could not export: $JDK_LOC"
+fi
+
+if [ -d "$VSCODE_LOC" ]; then
+    echo "Exporting VSCODE PATH: $VSCODE_LOC"
+    export PATH="$VSCODE_LOC:$PATH"
+else
+    echo "Could not export: $VSCODE_LOC"
 fi
 
 if [ -d "$SHELLSCRIPT_LOC" ]; then
