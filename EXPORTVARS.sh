@@ -92,4 +92,4 @@ else
 fi
 
 echo "PATH Exported: $PATH"
-cd $SHELLSCRIPT_LOC
+#cd $SHELLSCRIPT_LOC
