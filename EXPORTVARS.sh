@@ -25,13 +25,16 @@ export GIT_VER=2.49.0
 export PYTHON_VER=3.12.4
 export NODEJS_VER=22.15.0
 export JDK_VER=21.0.6
+export GO_VER=1.25.1
 
 export GIT_LOC=${WORKSPACE_PATH}/git/$GIT_VER/bin
 export PYTHON_LOC=${WORKSPACE_PATH}/python/$PYTHON_VER/bin
 export NODEJS_LOC=${WORKSPACE_PATH}/nodejs/${NODEJS_VER}/node-v${NODEJS_VER}-linux-x64/bin
 export JDK_LOC=${WORKSPACE_PATH}/JDK/${JDK_VER}
+export GO_LOC=${WORKSPACE_PATH}/Go/${GO_VER}/go/bin
 export VSCODE_LOC=${WORKSPACE_PATH}/VSCode/VSCode-linux-x64
 export SHELLSCRIPT_LOC=${REPO_PATH}/BashScript
+export UTILS_LOC=${SHELLSCRIPT_LOC}/utils
 export GITCOMMANDS_LOC=${SHELLSCRIPT_LOC}/gitcommands
 export PYTHONSCRIPTS_LOC=${SHELLSCRIPT_LOC}/pythonscripts
 
@@ -39,6 +42,7 @@ echo "Exporting GIT VER: $GIT_VER"
 echo "Exporting PYTHON VER: $PYTHON_VER"
 echo "Exporting NODEJS VER: $NODEJS_VER"
 echo "Exporting JDK VER: $JDK_VER"
+echo "Exporting GO VER: $GO_VER"
 
 
 if [ -d "$GIT_LOC" ]; then
@@ -71,6 +75,13 @@ else
     echo "Could not export: $JDK_LOC"
 fi
 
+if [ -d "$GO_LOC" ]; then
+    echo "Exporting GO PATH: $GO_LOC"
+    export PATH="$GO_LOC:$PATH"
+else
+    echo "Could not export: $GO_LOC"
+fi
+
 if [ -d "$VSCODE_LOC" ]; then
     echo "Exporting VSCODE PATH: $VSCODE_LOC"
     export PATH="$VSCODE_LOC:$PATH"
@@ -83,6 +94,13 @@ if [ -d "$SHELLSCRIPT_LOC" ]; then
     export PATH="$SHELLSCRIPT_LOC:$PATH"
 else
     echo "Could not export: $SHELLSCRIPT_LOC"
+fi
+
+if [ -d "$UTILS_LOC" ]; then
+    echo "Exporting UTILS PATH: $UTILS_LOC"
+    export PATH="$UTILS_LOC:$PATH"
+else
+    echo "Could not export: $UTILS_LOC"
 fi
 
 if [ -d "$GITCOMMANDS_LOC" ]; then
