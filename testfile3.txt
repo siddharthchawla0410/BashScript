@@ -1,5 +1,0 @@
-John,USA,50000
-Maria,Canada,55000
-Ali,India,45000
-Jane,USA,60000
-Raj,India,48000
