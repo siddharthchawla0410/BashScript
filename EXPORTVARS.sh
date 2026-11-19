@@ -27,7 +27,7 @@ export WORKSPACE_PATH=/opt
 #specifying versions
 export GIT_VER=2.49.0
 export PYTHON_VER=3.12.4
-export NODEJS_VER=22.15.0
+export NODEJS_VER=26.12.0
 export JDK_VER=17.0.14
 export GO_VER=1.25.1
 export GRADLE_VER=8.0.2
@@ -49,10 +49,15 @@ export CODEMONSCRIPTS_LOC=${SHELLSCRIPT_LOC}/codemonscripts
 export GRADLE_LOC=${WORKSPACE_PATH}/gradle/gradle-${GRADLE_VER}/bin
 export FLUTTER_LOC=${WORKSPACE_PATH}/flutter/flutter332/bin
 export CLAUDE_LOC=/home/linuxuser1/.local/bin
-export SQLITE_LOC=/opt/SQLite/sqlite-tools-linux-x64-3510200
+export SQLITE_LOC=/opt/SQLite/sqlite-tools-linux-x64-3540100
 # sqlite 3.31.1 is compatible with glibc
 export NGROK_LOC=/opt/ngrok-v3-stable-linux-amd64
 export GCLOUD_LOC=/opt/GCloud/google-cloud-cli-linux-x86_64/google-cloud-sdk/bin
+export FIREBASECLI_LOC=/opt/firebasecli
+
+# Terminal colors
+RED=$'\e[31m'
+NC=$'\e[0m'   # no color (reset)
 
 echo "Exporting GIT VER: $GIT_VER"
 echo "Exporting PYTHON VER: $PYTHON_VER"
@@ -66,21 +71,21 @@ if [ -d "$GIT_LOC" ]; then
     echo "Exporting GIT PATH: $GIT_LOC"
     export PATH="$GIT_LOC:$PATH"
 else
-    echo "Could not export: $GIT_LOC"
+    echo "${RED}Could not export: $GIT_LOC${NC}"
 fi
 
 if [ -d "$PYTHON_LOC" ]; then
     echo "Exporting PYTHON PATH: $PYTHON_LOC"
     export PATH="$PYTHON_LOC:$PATH"
 else
-    echo "Could not export: $PYTHON_LOC"
+    echo "${RED}Could not export: $PYTHON_LOC${NC}"
 fi
 
 if [ -d "$NODEJS_LOC" ]; then
     echo "Exporting NODEJS PATH: $NODEJS_LOC"
     export PATH="$NODEJS_LOC:$PATH"
 else
-    echo "Could not export: $NODEJS_LOC"
+    echo "${RED}Could not export: $NODEJS_LOC${NC}"
 fi
 
 if [ -d "$JDK_LOC" ]; then
@@ -89,63 +94,63 @@ if [ -d "$JDK_LOC" ]; then
     echo "Exporting JDK PATH: $JDK_LOC"
     export PATH="$JDK_LOC:$PATH"
 else
-    echo "Could not export: $JDK_LOC"
+    echo "${RED}Could not export: $JDK_LOC${NC}"
 fi
 
 if [ -d "$GO_LOC" ]; then
     echo "Exporting GO PATH: $GO_LOC"
     export PATH="$GO_LOC:$PATH"
 else
-    echo "Could not export: $GO_LOC"
+    echo "${RED}Could not export: $GO_LOC${NC}"
 fi
 
 if [ -d "$VSCODE_LOC" ]; then
     echo "Exporting VSCODE PATH: $VSCODE_LOC"
     export PATH="$VSCODE_LOC:$PATH"
 else
-    echo "Could not export: $VSCODE_LOC"
+    echo "${RED}Could not export: $VSCODE_LOC${NC}"
 fi
 
 if [ -d "$ANTIGRAVITYIDE_LOC" ]; then
     echo "Exporting ANTIGRAVITY PATH: $ANTIGRAVITYIDE_LOC"
     export PATH="$ANTIGRAVITYIDE_LOC:$PATH"
 else
-    echo "Could not export: $ANTIGRAVITYIDE_LOC"
+    echo "${RED}Could not export: $ANTIGRAVITYIDE_LOC${NC}"
 fi
 
 if [ -d "$SHELLSCRIPT_LOC" ]; then
     echo "Exporting SHELLSCRIPT PATH: $SHELLSCRIPT_LOC"
     export PATH="$SHELLSCRIPT_LOC:$PATH"
 else
-    echo "Could not export: $SHELLSCRIPT_LOC"
+    echo "${RED}Could not export: $SHELLSCRIPT_LOC${NC}"
 fi
 
 if [ -d "$UTILS_LOC" ]; then
     echo "Exporting UTILS PATH: $UTILS_LOC"
     export PATH="$UTILS_LOC:$PATH"
 else
-    echo "Could not export: $UTILS_LOC"
+    echo "${RED}Could not export: $UTILS_LOC${NC}"
 fi
 
 if [ -d "$GITCOMMANDS_LOC" ]; then
     echo "Exporting GITCOMMANDS PATH: $GITCOMMANDS_LOC"
     export PATH="$GITCOMMANDS_LOC:$PATH"
 else
-    echo "Could not export: $GITCOMMANDS_LOC"
+    echo "${RED}Could not export: $GITCOMMANDS_LOC${NC}"
 fi
 
 if [ -d "$PYTHONSCRIPTS_LOC" ]; then
     echo "Exporting PYTHONSCRIPTS PATH: $PYTHONSCRIPTS_LOC"
     export PATH="$PYTHONSCRIPTS_LOC:$PATH"
 else
-    echo "Could not export: $PYTHONSCRIPTS_LOC"
+    echo "${RED}Could not export: $PYTHONSCRIPTS_LOC${NC}"
 fi
 
 if [ -d "$CODEMONSCRIPTS_LOC" ]; then
     echo "Exporting CODEMONSCRIPTS PATH: $CODEMONSCRIPTS_LOC"
     export PATH="$CODEMONSCRIPTS_LOC:$PATH"
 else
-    echo "Could not export: $CODEMONSCRIPTS_LOC"
+    echo "${RED}Could not export: $CODEMONSCRIPTS_LOC${NC}"
 fi
 
 
@@ -153,49 +158,56 @@ fi
 #     echo "Exporting ANDROID PATH: $ANDROID_HOME"
 #     export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/19.0/bin:$PATH
 # else
-#     echo "Could not export: $ANDROID_HOME"
+#     echo "${RED}Could not export: $ANDROID_HOME${NC}"
 # fi
 
 if [ -d "$GRADLE_LOC" ]; then
     echo "Exporting GRADLE PATH: $GRADLE_LOC"
     export PATH=$GRADLE_LOC:$PATH
 else
-    echo "Could not export: $GRADLE_LOC"
+    echo "${RED}Could not export: $GRADLE_LOC${NC}"
 fi
 
 if [ -d "$FLUTTER_LOC" ]; then
     echo "Exporting FLUTTER PATH: $FLUTTER_LOC"
     export PATH=$FLUTTER_LOC:$PATH
 else
-    echo "Could not export: $FLUTTER_LOC"
+    echo "${RED}Could not export: $FLUTTER_LOC${NC}"
 fi
 
 if [ -d "$CLAUDE_LOC" ]; then
     echo "Exporting CLAUDE PATH: $CLAUDE_LOC"
     export PATH="$CLAUDE_LOC:$PATH"
 else
-    echo "Could not export: $CLAUDE_LOC"
+    echo "${RED}Could not export: $CLAUDE_LOC${NC}"
 fi
 
-# if [ -d "$SQLITE_LOC" ]; then
-#     echo "Exporting SQLITE PATH: $SQLITE_LOC"
-#     export PATH="$SQLITE_LOC:$PATH"
-# else
-#     echo "Could not export: $SQLITE_LOC"
-# fi
+if [ -d "$SQLITE_LOC" ]; then
+    echo "Exporting SQLITE PATH: $SQLITE_LOC"
+    export PATH="$SQLITE_LOC:$PATH"
+else
+    echo "${RED}Could not export: $SQLITE_LOC${NC}"
+fi
 
 if [ -d "$NGROK_LOC" ]; then
     echo "Exporting NGROK PATH: $NGROK_LOC"
     export PATH="$NGROK_LOC:$PATH"
 else
-    echo "Could not export: $NGROK_LOC"
+    echo "${RED}Could not export: $NGROK_LOC${NC}"
 fi
 
 if [ -d "$GCLOUD_LOC" ]; then
     echo "Exporting GCLOUD PATH: $GCLOUD_LOC"
     export PATH="$GCLOUD_LOC:$PATH"
 else
-    echo "Could not export: $GCLOUD_LOC"
+    echo "${RED}Could not export: $GCLOUD_LOC${NC}"
+fi
+
+if [ -d "$FIREBASECLI_LOC" ]; then
+    echo "Exporting FIREBASECLI PATH: $FIREBASECLI_LOC"
+    export PATH="$FIREBASECLI_LOC:$PATH"
+else
+    echo "${RED}Could not export: $FIREBASECLI_LOC${NC}"
 fi
 
 echo "PATH Exported: $PATH"
